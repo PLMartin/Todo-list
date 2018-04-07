@@ -1,0 +1,19 @@
+<!-- LOG IN -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Connexion</title>
+    </head>
+    <body class="container">
+        <h1>LOGIN</h1>
+        <form method="POST" action="/users/authenticate">
+            <input type="user" name="user" placeholder="user">
+            <input type="password" name="password" placeholder="password">
+            <button type="submit">Valider</button>
+        </form>
+        <form method="GET" action="/users/new">
+            <button type="submit">S'enregistrer</button>
+        </form>
+    </body>
+</html>

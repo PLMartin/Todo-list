@@ -1,0 +1,50 @@
+<!-- SHOW ALL TODOS -->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link href="views/styles.css" rel="stylesheet" type="text/css">
+        <title>TODO list</title>
+    </head>
+
+    <body class="container">
+        <h1>TODO list</h1>
+        <table>
+            <tr>
+                <td>User</td>
+                <td>Todo</td>
+                <td>ID</td>
+                <td>Done</td>
+            </tr>
+
+            <% for(var i=0; i<list.length; i++) {%>
+                <tr>
+                    
+                    <td> <%= list[i].user %> </td>
+                    <td> <%= list[i].message %> </td>
+                    <td> <%= list[i].id %> </td>
+                    <td> 
+                        <form method="POST" action="/todos/<%= list[i].id %>">
+                            <input type="hidden" name="_method" value="PATCH">
+                            <button type="submit"><%= list[i].complete %></button>
+                        </form>
+                    </td>
+                    <td> 
+                        <form method="POST" action="/todos/<%= list[i].id %>">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit">X</button>
+                        </form>
+                    </td>
+                </tr>
+            <% } %>
+
+        </table>
+        <form method="GET" action="/todos/add">
+            <button type="submit">Ajouter une tâche</button>
+        </form>
+
+
+    </body>
+
+</html>
